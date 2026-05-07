@@ -1,0 +1,17 @@
+{
+  "name": "comet_back",
+  "version": "1.0.0",
+  "description": "back-end dealing with Comet Spaceways user account management",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "David Castejon Ferrer",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

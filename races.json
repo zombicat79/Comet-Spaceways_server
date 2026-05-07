@@ -1,0 +1,631 @@
+{
+    "races": [
+        {
+            "id": 1,
+            "full_name": "Green Little Men",
+            "nicknames": [
+                "greenies",
+                "green-shits",
+                "martians",
+                "night stalkers",
+                "noodle-fingers"
+            ],
+            "alignment": "neutral",
+            "origins": [
+                "other galaxies"
+            ],
+            "languages": [
+                {
+                    "name": "Mentagrammic",
+                    "type": "telepathic",
+                    "human_readable": false,
+                    "human_writable": false,
+                    "human_comprehensible": true,
+                    "human_speakable": false
+                }
+            ],
+            "abilities": [
+                "stealthiness", 
+                "cooperation", 
+                "emotion-suppression"
+            ],
+            "strengths": ["intelligence","dexterity"],
+            "weaknesses": ["health", "strength"],
+            "jobs": [
+                "exploration",
+                "scientific research"
+            ],
+            "bosses": ["big-headed grays"],
+            "vassals": [],
+            "friends": [],
+            "enemies": [],
+            "permission_type": "B2",
+            "consulates": ["Earth (Europe)", "Earth (Asia)", "Earth (America)", "Moon", "Mars", "Venus", "Ceres"],
+            "intro": "A highly disciplined scouting and research race serving as primary field operatives and researchers",
+            "description": "The Green Little Men appear to function as a specialized class of explorers whose culture is defined by clinical efficiency. It is hypothesized that they operate under a strict hierarchical mandate, prioritizing collective data acquisition over individual survival or ego. The Green Little Men are widely theorized to be a genetically tailored servant class, optimized for long-duration exploration missions and high-precision scientific labor under the guidance of their 'big-headed gray' superiors",
+            "physical_features": [
+                "🔹 Chlorophylloid Epidermis – Their distinct green hue is hypothesized to be a photosynthetic adaptation, allowing them to survive on light in resource-scarce environments.",
+                "🔹 Spindly Extremities – Long, thin limbs and digits provide the extreme manual dexterity required for operating sensitive interstellar equipment.",
+                "🔹 Ocular Dominance – Large, dark ocular cavities suggest a visual range that extends far into the infrared, perfect for scouting unlit planetary surfaces.",
+                "🔹 Vestigial Orifices – The lack of visible ears or a complex mouth points to a biological shift toward telepathic or digital data transmission.",
+                "🔹 Lightweight Frame – A low-density skeletal structure allows for effortless, silent movement, making them nearly impossible to track by weight-based sensors."
+            ],
+            "intellectual_features": [
+                "🔹 Hyper-Analytical Focus – They possess the ability to process vast amounts of raw planetary data in real-time, functioning like biological supercomputers.",
+                "🔹 Cognitive Resilience – Their minds are hardened against psychological stress, allowing them to remain calm and analytical in the face of cosmic anomalies.",
+                "🔹 Language Decryption – It is believed they can reverse-engineer alien dialects and digital encryptions through instinctive pattern recognition.",
+                "🔹 Multi-Threaded Logic – Their brains are capable of managing multiple complex scientific experiments simultaneously without a drop in precision.",
+                "🔹 Spatial Intuition – They exhibit an innate understanding of higher-dimensional geometry, which is essential for deep-space navigation and exploration."
+            ],
+            "social_features": [
+                "🔹 Algorithmic Cooperation – They interact with a level of coordination that mimics a programmed algorithm, eliminating the friction of personal ego.",
+                "🔹 Stoic Subservience – Socially, they show no drive for individual recognition, seemingly finding purpose solely in the fulfillment of their assigned directives.",
+                "🔹 Emotional Neutrality – By suppressing sentiment, they maintain a purely professional atmosphere, though this makes them appear cold to more expressive races.",
+                "🔹 Unit Anonymity – They normally lack individual names or titles, identifying instead as part of a collective mission unit or research designation.",
+                "🔹 Interstellar Diplomacy – In consulates, they act as neutral mediators, providing clinical data and observations while avoiding political entanglements."
+            ],
+            "cover_img": "green-little-man.webp"
+        },
+        {
+            "id": 2,
+            "full_name": "Reptilians",
+            "nicknames": [
+                "lizardmen",
+                "crocs",
+                "cold-bloods",
+                "scalies"
+            ],
+            "alignment": "hostile",
+            "origins": [
+                "the Milky Way"
+            ],
+            "languages": [
+                {
+                    "name": "Kraz-Sshari",
+                    "type": "guttural",
+                    "human_readable": true,
+                    "human_writable": true,
+                    "human_comprehensible": true,
+                    "human_speakable": false
+                }
+            ],
+            "abilities": [
+                "subjugation",
+                "warfare",
+                "resource-extraction"
+            ],
+            "strengths": ["strength", "health"],
+            "weaknesses": ["diplomacy", "dexterity"],
+            "jobs": [
+                "invasion",
+                "colonization"
+            ],
+            "bosses": [],
+            "vassals": [],
+            "friends": [],
+            "enemies": ["leonians", "polymorphics", "big-headed grays"],
+            "permission_type": "D",
+            "consulates": ["Earth (Asia)"],
+            "intro": "A formidable warrior race driven by territorial expansion and the systematic extraction of planetary wealth",
+            "description": "The Reptilians are widely viewed as the premier militaristic power of the known Universe, though some xenobiologists hypothesize that their aggressive expansionism is actually a survival response to a dying home system rather than pure malice",
+            "physical_features": [
+                "🔹 Dermal Plating – Their bodies are covered in thick, interlocking scales that provide natural resistance to kinetic impact and thermal fluctuations.",
+                "🔹 Prehensile Caudal Limb – A powerful, muscular tail that functions as a balance stabilizer in combat and a lethal bludgeoning weapon in close quarters.",
+                "🔹 Nictitating Membranes – Transparent third eyelids that protect their vision from dust and debris during intense desert warfare or orbital bombardment.",
+                "🔹 Serrated Dentition – A jaw structure designed for crushing force, capable of snapping through most standard-issue carbon-fiber armors.",
+                "🔹 Chromatic Armor – Their traditional battle gear often mirrors their natural scales, using vibrant reds and greens to signify rank and regional origin within their empire."
+            ],
+            "intellectual_features": [
+                "🔹 Tactical Predation – Their minds are hard-wired for military strategy, allowing them to identify topographical weaknesses and structural flaws with predatory speed.",
+                "🔹 Resource Calculation – They possess an innate ability to quantify the raw mineral value of a planet simply by analyzing its atmospheric composition.",
+                "🔹 Rigid Logic – Their thought processes are highly linear and efficient, often ignoring 'unnecessary' nuances like empathy or artistic expression.",
+                "🔹 Combat Adaptation – They can learn an enemy's fighting style within minutes of engagement, adjusting their formations to exploit defensive gaps.",
+                "🔹 Hierarchical Knowledge – Intelligence is strictly compartmentalized; an individual only knows exactly what is required to execute their specific invasion objective."
+            ],
+            "social_features": [
+                "🔹 Might-Makes-Right Caste – Social standing is determined through physical combat and successful conquests, with the largest and most battle-scarred leading the legions.",
+                "🔹 Expansionist Ideology – Their culture is built on the core belief that any resource not actively defended by a 'stronger' race belongs to the Reptilian Empire.",
+                "🔹 Communal Broods – Offspring are raised in collective military crèches, ensuring that loyalty to the state supersedes any familial or individual bond.",
+                "🔹 Xenophobic Distrust – They view non-reptilian life forms as either obstacles to be cleared or assets to be managed, leading to a total lack of diplomatic effort.",
+                "🔹 Ceremonial Uniformity – Even in high-ranking social settings, they remain armored, signaling that they are always in a state of readiness for war."
+            ],
+            "cover_img": "reptilian.webp"
+        },
+        {
+            "id": 3,
+            "full_name": "Insectoids",
+            "nicknames": [
+                "spacebugs",
+                "bugheads"
+            ],
+            "alignment": "neutral",
+            "origins": [
+                "the Milky Way"
+            ],
+            "languages": [
+                {
+                    "name": "Chitin",
+                    "type": "ideographic",
+                    "human_readable": true,
+                    "human_writable": true,
+                    "human_comprehensible": false,
+                    "human_speakable": false
+                }
+            ],
+            "abilities": [
+                "cooperation",
+                "multitasking",
+                "emotion-suppression"
+            ],
+            "strengths": ["dexterity", "strength"],
+            "weaknesses": ["diplomacy", "intelligence"],
+            "jobs": [
+                "colonization",
+                "religion"
+            ],
+            "bosses": [],
+            "vassals": [],
+            "friends": [],
+            "enemies": [],
+            "permission_type": "C",
+            "consulates": ["Earth (Asia)", "Ceres"],
+            "intro": "A deeply spiritual and industrially efficient species that views planetary colonization as a sacred expansion of their hive-faith.",
+            "description": "The Insectoids are hypothesized to be a highly ritualistic civilization where biological efficiency and religious fervor are indistinguishable. While they appear intellectually rigid compared to humans, their ability to perform complex physical tasks in perfect unison suggests a unique form of collective consciousness.",
+            "physical_features": [
+                "🔹 Raptoratorial Forelimbs – Large, serrated scythe-like appendages used for both precise construction work and high-efficiency defense.",
+                "🔹 Multi-Segmented Thorax – An exoskeleton structure that allows for extreme flexibility and the ability to carry heavy colonization equipment over rough terrain.",
+                "🔹 Compound Ocular Grids – Large, multifaceted eyes that provide a panoramic field of view, specialized for detecting movement in low-light temple environments.",
+                "🔹 Chitinous Plates – Natural organic armor that is often adorned with religious silks or ceremonial robes to signify theological rank.",
+                "🔹 Sensorary Antennae – Twin head-mounted filaments used to detect pheromonal signals and subtle atmospheric shifts during ritual gatherings."
+            ],
+            "intellectual_features": [
+                "🔹 Task-Oriented Processing – Their intellect is geared toward execution rather than innovation, allowing them to follow complex colonization blueprints without error.",
+                "🔹 Dogmatic Logic – Their reasoning is heavily filtered through religious scripture, making them resistant to outside influence or secular diplomacy.",
+                "🔹 Spatial Geometry Instinct – They possess a natural understanding of hive-architecture, enabling them to build massive, intricate structures with minimal planning.",
+                "🔹 Rite Memorization – It is hypothesized that they can perfectly replicate ancient hymns and historical records through a biological data-storage system.",
+                "🔹 Zero-Self Concept – They appear to lack individualistic thought, processing all information based on how it benefits the collective's spiritual goals."
+            ],
+            "social_features": [
+                "🔹 Theocratic Hierarchy – The social structure is strictly governed by 'High Priests' who interpret the divine will for the rest of the working drones.",
+                "🔹 Pheromonal Unity – Social cohesion is maintained through the constant exchange of chemical signals, ensuring that every member is literally on the same wavelength.",
+                "🔹 Ritualistic Labor – Colonization is not viewed as work but as a form of worship, leading to an incredibly high output and dedication among the masses.",
+                "🔹 Silent Commemoration – They do not speak in a traditional sense, instead using rhythmic clicks and limb gestures to communicate complex theological concepts.",
+                "🔹 Cultural Seclusion – While neutral, they show very little interest in other races, viewing non-insectoid cultures as spiritually 'un-resonant' or irrelevant."
+            ],
+            "cover_img": "insectoid.webp"
+        },
+        {
+            "id": 4,
+            "full_name": "Cephalopodians",
+            "nicknames": [
+                "octopussies",
+                "squidmen",
+                "tentabros",
+                "little Cthulhus",
+                "ink-spitters",
+                "children of the Kraken"
+            ],
+            "alignment": "friendly",
+            "origins": [
+                "the Milky Way"
+            ],
+            "languages": [
+                {
+                    "name": "Aquagliphic",
+                    "type": "ideographic",
+                    "human_readable": true,
+                    "human_writable": true,
+                    "human_comprehensible": false,
+                    "human_speakable": false
+                },
+                {
+                    "name": "Luminal",
+                    "type": "sign language",
+                    "human_readable": true,
+                    "human_writable": false,
+                    "human_comprehensible": true,
+                    "human_speakable": false
+                }
+            ],
+            "abilities": [
+                "multitasking",
+                "stealthiness",
+                "navigation"
+            ],
+            "strengths": ["wisdom", "dexterity"],
+            "weaknesses": ["health", "strength"],
+            "jobs": [
+                "scientific research",
+                "language interpretation"
+            ],
+            "bosses": [],
+            "vassals": ["amoebians"],
+            "friends": ["aetherians", "big-headed grays"],
+            "enemies": ["polymorphics"],
+            "permission_type": "A",
+            "consulates": ["Earth (Europe)", "Earth (Asia)", "Earth (America)", "Moon", "Mars", "Venus", "Ceres"],
+            "intro": "An ancient benevolent race of aquatic polymaths dedicated to cross-cultural linguistic synthesis and stellar charting",
+            "description": "The Cephalopodians are hypothesized to be the primary chroniclers of the known cosmos, possessing a fluid biological form that allows them to interact with a vast array of alien technologies and environments with graceful precision",
+            "physical_features": [
+                "🔹 Bioluminescent Mantle – A semi-translucent outer membrane that pulses with soft light, potentially used for mood expression or silent communication.",
+                "🔹 Multiaxial Tentacles – Flexible appendages equipped with micro-suction cups that allow for the simultaneous manipulation of multiple complex interfaces.",
+                "🔹 Chromatophoric Skin – Highly adaptive skin cells that can alter color and texture instantaneously, aiding in their natural stealth and camouflage.",
+                "🔹 Hydro-Ocular Bulbs – Large, specialized eyes designed to process visual data across high-pressure gradients and various liquid densities.",
+                "🔹 Gelatinous Articulation – A lack of a rigid internal skeleton allows them to compress their bodies into spaces otherwise inaccessible to humanoid researchers."
+            ],
+            "intellectual_features": [
+                "🔹 Parallel Processing – Their neural architecture is distributed across their limbs, allowing them to engage in separate scientific calculations simultaneously.",
+                "🔹 Semantic Intuition – They possess a legendary capacity for interpreting dead or alien languages by sensing the 'rhythm' of the data structure.",
+                "🔹 Celestial Mnemonics – They can memorize complex star charts without digital aid, functioning as living biological GPS units for deep-space navigation.",
+                "🔹 Holistic Wisdom – Their long lifespans allow them to view galactic history through a lens of deep time, making them excellent mediators and advisors.",
+                "🔹 Adaptive Logic – Their thinking is fluid and non-linear, enabling them to find creative solutions to physics problems that stymie more rigid, carbon-based minds."
+            ],
+            "social_features": [
+                "🔹 Collaborative Harmony – They prioritize group consensus above all else, often spending hours in synchronized bioluminescent 'debates' to reach a decision.",
+                "🔹 Xenophilic Nature – Unlike many races, they are genuinely curious about foreign cultures, often seeking out 'friends' like the Aetherians to share knowledge.",
+                "🔹 Pacifist Ethos – Their society is built on the principle of non-interference and intellectual growth, resulting in a complete lack of military standing.",
+                "🔹 Shared Scholasticism – Cephalopodians do not own information; they believe data is a universal resource that must be interpreted and shared for the common good.",
+                "🔹 Fluid Hierarchy – Leadership roles shift based on who possesses the most wisdom regarding a specific subject, rather than through birthright or force."
+            ],
+            "cover_img": "cephalopodian.webp"
+        },
+        {
+            "id": 5,
+            "full_name": "Polymorphics",
+            "nicknames": [
+                "deformies",
+                "mishaps",
+                "space horrors",
+                "abominazis",
+                "walking nightmares",
+                "trash-piles"
+            ],
+            "alignment": "hostile",
+            "origins": [
+                "other dimensions",
+                "other galaxies"
+            ],
+            "languages": [],
+            "abilities": [
+                "transmutation",
+                "regeneration",
+                "emotion-suppression"
+            ],
+            "strengths": ["dexterity", "health"],
+            "weaknesses": ["diplomacy", "wisdom"],
+            "jobs": [
+                "invasion"
+            ],
+            "bosses": [],
+            "vassals": [],
+            "friends": [],
+            "enemies": ["cephalopodians", "leonians", "reptilians"],
+            "permission_type": "D",
+            "consulates": ["Earth (Asia)"],
+            "intro": "An unstable multi-dimensional biological anomaly that assimilates and mimics organic matter to facilitate planetary takeover",
+            "description": "The Polymorphics are hypothesized to be a sentient biological weapon that escaped its creators, currently existing in a state of constant, uncontrolled cellular flux. Their presence in the Milky Way is treated as a localized reality-warping event rather than a standard migration",
+            "physical_features": [
+                "🔹 Chaotic Morphogenesis – Their bodies lack a fixed skeletal structure, allowing for the spontaneous eruption of eyes, maws, and limbs from any surface.",
+                "🔹 Rapid Mitosis – They possess a near-instantaneous regenerative capability, where severed tissues can re-merge or develop into independent offensive protrusions.",
+                "🔹 Multi-Species Chimerism – Their physical form often displays vestigial traits of consumed prey, such as reptilian scales or insectoid mandibles, in a grotesque patchwork.",
+                "🔹 Amorphous Locomotion – They move by shifting their entire mass, allowing them to flow through ventilation systems or expand their size to engulf obstacles.",
+                "🔹 Ocular Redundancy – The presence of dozens of eyes scattered across their mass provides them with a 360-degree awareness that is impossible to blind."
+            ],
+            "intellectual_features": [
+                "🔹 Instinctive Mimicry – While lacking wisdom, they can perfectly replicate the physical actions and vocal patterns of other races to infiltrate secure zones.",
+                "🔹 Singular Invasive Focus – Their intelligence is entirely channeled into a 'consumption-and-expansion' loop, making them immune to psychological manipulation.",
+                "🔹 Tactical Transmutation – They can intellectually assess an enemy's weakness and physically mutate their appendages into the exact tools needed to counter them.",
+                "🔹 Low-Level Psychic Static – Their presence generates a mental 'noise' that suppresses the emotions of nearby biologicals, facilitating an easier invasion.",
+                "🔹 Non-Linear Problem Solving – Lacking traditional logic, they bypass obstacles through sheer physical ingenuity, such as melting their own tissue to gum up machinery."
+            ],
+            "social_features": [
+                "🔹 Predatory Solipsism – They do not recognize other life forms as sentient, viewing the entire galaxy as a mere catalog of biomass to be assimilated.",
+                "🔹 Collective Ego-Suppression – Within a swarm, individuals merge their consciousness, resulting in a terrifyingly coordinated assault with no internal dissent.",
+                "🔹 Total Diplomatic Immunity – Because they lack a centralized governing philosophy or empathy, negotiation is biologically impossible for this race.",
+                "🔹 Parasitic Hierarchies – They do not have leaders; instead, the largest mass of biomass dictates the direction of the smaller 'droplets' through chemical signals.",
+                "🔹 Hostile Integration – Their only form of 'socializing' is the physical absorption of other species, which they treat as the ultimate form of unification."
+            ],
+            "cover_img": "polymorphic.webp"
+        },
+        {
+            "id": 6,
+            "full_name": "Big-headed Grays",
+            "nicknames": [
+                "ultrabrains",
+                "spacenerds",
+                "puppeteers",
+                "bubbleheads",
+                "techno-enslavers"
+            ],
+            "alignment": "neutral",
+            "origins": [
+                "other galaxies"
+            ],
+            "languages": [
+                {
+                    "name": "New Passodian",
+                    "type": "numeric",
+                    "human_readable": true,
+                    "human_writable": true,
+                    "human_comprehensible": true,
+                    "human_speakable": true
+                },
+                {
+                    "name": "Mentagrammic",
+                    "type": "telepathic",
+                    "human_readable": false,
+                    "human_writable": false,
+                    "human_comprehensible": true,
+                    "human_speakable": false
+                },
+                {
+                    "name": "Xyznabic",
+                    "type": "algorithmic",
+                    "human_readable": true,
+                    "human_writable": true,
+                    "human_comprehensible": false,
+                    "human_speakable": false
+                }
+            ],
+            "abilities": [
+                "psionics",
+                "subjugation",
+                "superthinking"
+            ],
+            "strengths": ["intelligence", "wisdom"],
+            "weaknesses": ["strength", "health"],
+            "jobs": [
+                "invention",
+                "scientific research"
+            ],
+            "bosses": [],
+            "vassals": ["green little men"],
+            "friends": ["cephalopodians", "aetherians"],
+            "enemies": ["reptilians"],
+            "permission_type": "B1",
+            "consulates": ["Earth (Europe)", "Earth (Asia)", "Earth (America)", "Moon", "Mars", "Venus", "Ceres"],
+            "intro": "The preeminent intellectual architects of the galaxy, utilizing advanced psionics and technological invention to steer stellar development",
+            "description": "The Big-headed Grays are hypothesized to be an ancient evolution of a humanoid line that sacrificed physical mass for neural expansion. They operate as a silent administrative power, delegating physical labor to vassals like the Green Little Men while focusing on the high-level scientific structure of the cosmos",
+            "physical_features": [
+                "🔹 Hyper-Expanded Cranium – An oversized skull designed to accommodate a massively developed cerebral cortex, necessitated by their superthinking capabilities.",
+                "🔹 Atmospheric Containment Sphere – A transparent helmet typically worn to maintain a specific pressurized gas mix, protecting their fragile, cracked skin from alien environments.",
+                "🔹 Atrophied Limbs – Slender, spindly arms and legs that suggest a total reliance on technology and psionics rather than physical exertion.",
+                "🔹 Obsidian Ocular Lenses – Large, pitch-black eyes capable of perceiving psychic auras and high-frequency electromagnetic waves.",
+                "🔹 Nano-Fiber Flight Suit – A sleek, form-fitting black suit integrated with an atomic symbol, likely serving as a conduit for their inventions and personal life-support."
+            ],
+            "intellectual_features": [
+                "🔹 Multidimensional Calculus – Their brains can solve equations involving more than four dimensions instinctively, making them the galaxy's primary inventors.",
+                "🔹 Psionic Subjugation – They possess the mental capacity to impose their will onto 'lesser' minds, a tool they use to maintain order among their worker-vassals.",
+                "🔹 Predictive Historicity – Using superthinking, they can simulate societal outcomes centuries in advance with startling accuracy.",
+                "🔹 Technological Symbiosis – They interact with their machinery via direct neural links, blurring the line between biological thought and digital execution.",
+                "🔹 Infinite Information Retention – They appear to have bypassed biological forgetting, maintaining total access to every piece of data they have ever processed."
+            ],
+            "social_features": [
+                "🔹 Meritocratic Technocracy – Social status is determined strictly by the complexity of one's inventions and the depth of one's psionic reach.",
+                "🔹 Detached Paternalism – They view other races like the Green Little Men as useful children, providing them with structure in exchange for total obedience.",
+                "🔹 Telepathic Consensus – They rarely speak aloud among themselves, instead existing in a constant, high-bandwidth psychic network that eliminates social friction.",
+                "🔹 Non-Aggressive Superiority – They rarely initiate war, preferring to out-think or psionically neutralize enemies like the Reptilians rather than engage in physical combat.",
+                "🔹 Cultural Archivalism – They consider themselves the librarians of the universe, obsessive about documenting every scientific anomaly they encounter."
+            ],
+            "cover_img": "big-headed-gray.webp"
+        },
+        {
+            "id": 7,
+            "full_name": "Amoebians",
+            "nicknames": [
+                "mucusballs",
+                "megacells",
+                "spaceblobs",
+                "sludgies",
+                "snotballs",
+                "infection bags"
+            ],
+            "alignment": "neutral",
+            "origins": [
+                "other galaxies",
+                "other dimensions"
+            ],
+            "languages": [],
+            "abilities": [
+                "transversality",
+                "regeneration",
+                "stealthiness"
+            ],
+            "strengths": ["health", "strength"],
+            "weaknesses": ["intelligence", "wisdom"],
+            "jobs": [
+                "colonization",
+                "exploration"
+            ],
+            "bosses": ["cephalopodians"],
+            "vassals": [],
+            "friends": [],
+            "enemies": ["polymorphics"],
+            "permission_type": "C",
+            "consulates": ["Earth (Asia)", "Ceres"],
+            "intro": "A vast, macro-cellular organism capable of dimensional transversality and rapid environmental adaptation.",
+            "description": "The Amoebians are hypothesized to be a form of living geography. They are massive singular cells that explore the universe by physically absorbing and processing the environments they encounter. It is thought they were either created or adapted and tamed by the Cephalopodians, with which they show a particular bond. Sometimes on their own and other times under the guidance of their 'shepherds', they serve as the ultimate frontline for deep-space colonization.",
+            "physical_features": [
+                "🔹 Protoplasmic Veins – Complex, golden-hued internal channels that transport nutrients and sensory data across their massive cellular body.",
+                "🔹 Translucent Membrane – A semi-permeable outer layer that allows them to squeeze through microscopic cracks or expand to engulf entire resource deposits.",
+                "🔹 Nucleus Core – A dense, luminous central hub that houses their vital biological functions and acts as the 'anchor' for their physical form.",
+                "🔹 Pseudopodial Limbs – Temporary protrusions that can be hardened for strength or thinned into delicate filaments for stealthy exploration.",
+                "🔹 Cytoplasmic Glow – Subtle bioluminescent nodes that shift in color based on the chemical composition of the atmosphere they are currently processing."
+            ],
+            "intellectual_features": [
+                "🔹 Instinctive Navigation – While lacking high-level wisdom, they possess a primal, multi-dimensional sense of direction that allows them to cross galactic voids unerringly.",
+                "🔹 Cellular Memory – They do not learn through study but through consumption; when they absorb matter, they 'know' its history and properties.",
+                "🔹 Algorithmic Efficiency – Their intelligence is purely operational, focused on the most direct path to nutrient acquisition and colonization.",
+                "🔹 Sensory Synthesis – They lack traditional brains, instead processing stimuli through their entire surface area, making them impossible to surprise.",
+                "🔹 Biological Encryption – Their 'thoughts' are encoded in chemical sequences that are nearly impossible for outside psionics to read or manipulate."
+            ],
+            "social_features": [
+                "🔹 Symbiotic Subservience – They share a unique bond with the Cephalopodians, acting as the 'muscle' and 'territory' for their wise, multi-tentacled bosses.",
+                "🔹 Colonial Expansion – Their social drive is purely expansionist; they do not build cities but rather 'become' the landscape of the planets they occupy.",
+                "🔹 Emotional Flatline – Lacking a nervous system, they do not experience fear or anger, which makes them terrifyingly persistent in their exploration duties.",
+                "🔹 Group Merging – When two Amoebians meet, they often temporarily fuse to exchange data before splitting, a social process that is purely transactional.",
+                "🔹 Ecological Indifference – They treat other life forms as temporary obstacles or potential biomass, unless specifically directed otherwise by their superiors."
+            ],
+            "cover_img": "amoebian.webp"
+        },
+        {
+            "id": 8,
+            "full_name": "Leonians",
+            "nicknames": [
+                "spacecats",
+                "cosmokittens",
+                "furries",
+                "miaow-miaows",
+                "fleabags",
+                "spacepurrs"
+            ],
+            "alignment": "friendly",
+            "origins": [
+                "the Milky Way"
+            ],
+            "languages": [
+                {
+                    "name": "Roar Codex",
+                    "type": "guttural",
+                    "human_readable": false,
+                    "human_writable": false,
+                    "human_comprehensible": true,
+                    "human_speakable": false
+                },
+                {
+                    "name": "Scarcratchik",
+                    "type": "hieroglyphic",
+                    "human_readable": true,
+                    "human_writable": true,
+                    "human_comprehensible": true,
+                    "human_speakable": true
+                }
+            ],
+            "abilities": [
+                "warfare",
+                "navigation",
+                "resource-extraction"
+            ],
+            "strengths": ["strength", "health"],
+            "weaknesses": ["diplomacy", "intelligence"],
+            "jobs": [
+                "exploration",
+                "religion"
+            ],
+            "bosses": [],
+            "vassals": [],
+            "friends": [],
+            "enemies": ["reptilians", "polymorphics"],
+            "permission_type": "B1",
+            "consulates": ["Earth (Europe)", "Earth (Asia)", "Earth (America)", "Moon", "Mars", "Venus", "Ceres"],
+            "intro": "A noble and physically imposing race of feline warriors who blend ritualistic tradition with stellar prowess",
+            "description": "The Leonians are hypothesized to be the ancestral guardians of a whole huge cluster of galaxies, maintaining a society built on honor, territorial integrity and a deep faith-based connection to the stars",
+            "physical_features": [
+                "🔹 Dense Mane Structure – A thick, voluminous growth of fur around the neck and head that serves as both a sign of maturity and natural protection during warfare.",
+                "🔹 Digitaligrade Stance – Powerful lower limbs ending in clawed paws that allow for rapid bursts of speed during exploration and resource-extraction missions.",
+                "🔹 Retractable Talons – Razor-sharp claws housed within the digits, utilized as secondary weapons in close-quarters warfare.",
+                "🔹 Tapetum Lucidum – Advanced ocular tissue that grants superior night vision, essential for navigating the dim corridors of deep-space vessels.",
+                "🔹 Ornate Battle-Garb – Traditional heavy robes and gilded armor often featuring lion-head motifs to signify rank and religious devotion."
+            ],
+            "intellectual_features": [
+                "🔹 Instinctive Navigation – A primal, highly developed sense of spatial awareness that allows them to chart new star systems without complex computer aid.",
+                "🔹 Tactical Predation – Their combat intelligence is focused on ambushes and overwhelming physical force rather than intricate long-term diplomacy.",
+                "🔹 Oral Traditions – They possess a remarkable capacity for memorizing vast religious epics and ancestral lineages through guttural vocalizations.",
+                "🔹 Resource Sensitivity – An innate ability to 'scent' mineral-rich asteroids, making them highly efficient at planetary resource-extraction.",
+                "🔹 Moral Absolutism – A rigid intellectual framework where actions are strictly judged as either honorable or cowardly, leaving little room for diplomatic nuance."
+            ],
+            "social_features": [
+                "🔹 Pride-Based Governance – Social structure is centered around a central leader, often depicted in regal attire and fur-lined capes within high-tech command centers.",
+                "🔹 Religious Militarism – Their approach to warfare is deeply intertwined with their faith, viewing exploration and conquest as a holy mandate.",
+                "🔹 Ancestral Veneration – Much of their social interaction is governed by the honor of one's bloodline and the preservation of ancient pride-glyphs.",
+                "🔹 Territorial Hospitality – While friendly, they maintain strict boundaries; those who respect their space are treated as honored guests in their global consulates.",
+                "🔹 Ceremonial Uniformity – Leonians often display their status through lavishly decorated belts and wrist guards featuring sun and lion iconography."
+            ],
+            "cover_img": "leonian.webp"
+        },
+        {
+            "id": 9,
+            "full_name": "Aetherians",
+            "nicknames": [
+                "spacesouls",
+                "wisdom-whirls",
+                "shinies",
+                "angels from the void",
+                "ultradimensionals",
+                "eternals"
+            ],
+            "alignment": "friendly",
+            "origins": [
+                "other dimensions"
+            ],
+            "languages": [
+                {
+                    "name": "Translumenearmonic",
+                    "type": "chanted",
+                    "human_readable": false,
+                    "human_writable": false,
+                    "human_comprehensible": false,
+                    "human_speakable": false
+                },
+                {
+                    "name": "Mystic Whispering",
+                    "type": "telepathic",
+                    "human_readable": false,
+                    "human_writable": false,
+                    "human_comprehensible": true,
+                    "human_speakable": false
+                },
+                {
+                    "name": "Vortex Script",
+                    "type": "ideographic",
+                    "human_readable": true,
+                    "human_writable": true,
+                    "human_comprehensible": true,
+                    "human_speakable": false
+                }
+            ],
+            "abilities": [
+                "transversality",
+                "psionics",
+                "self-sustenance"
+            ],
+            "strengths": ["wisdom", "intelligence"],
+            "weaknesses": ["health", "strength"],
+            "jobs": [
+                "philosophy",
+                "scientific research"
+            ],
+            "bosses": [],
+            "vassals": [],
+            "friends": ["cephalopodians", "big-headed grays"],
+            "enemies": [],
+            "permission_type": "A",
+            "consulates": ["Earth (Europe)", "Earth (Asia)", "Earth (America)", "Moon", "Mars", "Venus", "Ceres"],
+            "intro": "Luminous, ethereal beings from a higher dimension who exist as pure psionic energy and profound cosmic intellect",
+            "description": "The Aetherians are hypothesized to be the final evolutionary stage of biological consciousness, having shed physical density to exist as shimmering interconnected energy matrices",
+            "physical_features": [
+                "🔹 Iridescent Energy Matrix – Their 'body' consists of swirling, pearlescent vapors that shift in hue according to their current psionic frequency.",
+                "🔹 Ocular Clusters – Multiple glowing apertures located on their upper mass that perceive reality across several dimensions simultaneously.",
+                "🔹 Tendrilous Extensions – Fine, thread-like energy filaments that reach out from their base to interact with physical matter or transmit data.",
+                "🔹 Photonic Halo – A constant radiance emanating from their core that provides natural illumination and serves as a primary source of self-sustenance.",
+                "🔹 Non-Skeletonized Form – A complete lack of rigid internal structures, allowing them to drift through solid obstacles and survive the vacuum of space."
+            ],
+            "intellectual_features": [
+                "🔹 Trans-Dimensional Logic – Their intellect operates on a scale that ignores linear time, allowing for scientific research into the very fabric of existence.",
+                "🔹 Collective Wisdom – They possess a shared consciousness that aggregates millions of years of philosophical inquiry and cosmic observation.",
+                "🔹 Psionic Encoding – They can project complex thoughts directly into the minds of allies like the Cephalopodians, bypassing the need for physical media.",
+                "🔹 Infinite Concept Synthesis – The ability to combine disparate scientific theories into unified laws of physics instantaneously.",
+                "🔹 Emotional Translucency – Their feelings are projected through their color shifts, making them incapable of the deception found in more 'solid' races."
+            ],
+            "social_features": [
+                "🔹 Philosophical Hedonism – Their society is structured around the pursuit of ultimate truth and the joy of expanding the galaxy's collective knowledge.",
+                "🔹 Pacifist Isolation – While friendly, they rarely intervene in physical conflicts, preferring to act as silent advisors to their allies.",
+                "🔹 Consensus Luminescence – Major social decisions are made by large gatherings merging their energy fields until a single harmonic color is achieved.",
+                "🔹 Inter-Galactic Mentorship – They view younger races with a gentle patient curiosity, often establishing consulates to guide planetary development.",
+                "🔹 Ritualistic Meditation – Long periods of stillness spent 'singing' to the void to maintain their connection to their original dimension."
+            ],
+            "cover_img": "aetherian.webp"
+        }
+    ]
+}
+
