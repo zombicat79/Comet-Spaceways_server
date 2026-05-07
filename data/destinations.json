@@ -401,10 +401,8 @@
             "lowest_accessibility": 750
         },
         {
-            "full_name": "Europa"
-        },
-        {
-            "full_name": "Enceladus"
+            "id": 10,
+            "full_name": "Io"
         }
     ]
 }
