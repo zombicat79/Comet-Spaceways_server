@@ -4,7 +4,7 @@
   "description": "back-end dealing with Comet Spaceways user account management",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon server.js"
   },
   "author": "David Castejon Ferrer",
   "license": "ISC",

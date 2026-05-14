@@ -1,32 +1,15 @@
 const express = require('express');
 
-const { getAllDestinations, getDestination, createDestination, editDestination, deleteDestination } = require('./routes/destinations-routes');
-const { getAllFLights } = require('./routes/flights-routes');
-const { getAllRAces } = require('./routes/races-routes');
+const usersRouter = require('./src/routes/users-routes');
+const destinationsRouter = require('./src/routes/destinations-routes');
+const flightsRouter = require('./src/routes/flights-routes');
+const racesRouter = require('./src/routes/races-routes');
 
 const app = express();
-
 app.use(express.json());
+app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/destinations', destinationsRouter);
+app.use('/api/v1/flights', flightsRouter);
+app.use('/api/v1/races', racesRouter);
 
-// DESTINATIONS
-app.route('/api/v1/destinations')
-    .get(getAllDestinations)
-    .post(createDestination);
-
-app.route('/api/v1/destinations/:id')
-    .get(getDestination)
-    .patch(editDestination)
-    .delete(deleteDestination);
-
-// FLIGHTS
-app.route('/api/v1/flights')
-    .get(getAllFLights);
-
-// RACES
-app.route('/api/v1/races')
-    .get(getAllRAces);
-
-const port = 3000;
-app.listen(port, () => {
-    console.log(`Server running on port ${port}...`);
-})
+module.exports = app;

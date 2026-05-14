@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const destinations = JSON.parse(fs.readFileSync(`${__dirname}/../data/destinations.json`));
+const destinations = JSON.parse(fs.readFileSync(`${__dirname}/../../data/destinations.json`));
 
 function getAllDestinations(req, res) {
     res.status(200).json({
