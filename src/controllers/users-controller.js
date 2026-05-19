@@ -1,14 +1,17 @@
 const fs = require('fs');
+const userModel = require('./../../data/models/user-model');
 
 const users = JSON.parse(fs.readFileSync(`${__dirname}/../../data/users.json`));
 
 function checkBody(req, res, next) {
-    if (!req.body.name) {
-        return res.status(400).json({
-            status: 'fail',
-            message: 'A name property was not provided. It is mandatory'
-        });
-    }
+    userModel.forEach((prop) => {
+        if (!(prop in req.body)) {
+            return res.status(400).json({
+                status: 'fail',
+                message: `${prop} property is missing in the data that was sent. It is mandatory to include it`
+            });
+        }
+    });
     next();
 }
 
