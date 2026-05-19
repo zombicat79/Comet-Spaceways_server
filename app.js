@@ -6,7 +6,11 @@ const flightsRouter = require('./src/routes/flights-routes');
 const racesRouter = require('./src/routes/races-routes');
 
 const app = express();
+
+// MIDDLEWARE STACK
 app.use(express.json());
+
+// ROUTERS
 app.use('cometspaceways/api/v1/users', usersRouter);
 app.use('cometspaceways/api/v1/destinations', destinationsRouter);
 app.use('cometspaceways/api/v1/flights', flightsRouter);

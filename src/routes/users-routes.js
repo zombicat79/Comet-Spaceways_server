@@ -1,4 +1,5 @@
 const express = require('express');
+const { createUser, checkBody } = require('./../controllers/users-controller');
 
 const usersRouter = express.Router();
 
@@ -7,9 +8,7 @@ usersRouter.route('/')
         console.log(req);
         res.status(200).send('Users router was hit!')
     })
-    .post((req, res) => {
-        // Route controller to be defined
-    });
+    .post(checkBody, createUser);
 
 usersRouter.route('/:id')
     .get((req, res) => {
