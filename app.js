@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const usersRouter = require('./src/routes/users-routes');
 const destinationsRouter = require('./src/routes/destinations-routes');
@@ -8,6 +9,7 @@ const racesRouter = require('./src/routes/races-routes');
 const app = express();
 
 // MIDDLEWARE STACK
+app.use(cors());
 app.use(express.json());
 
 // ROUTERS

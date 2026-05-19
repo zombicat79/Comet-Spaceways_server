@@ -15,13 +15,13 @@ function checkBody(req, res, next) {
     next();
 }
 
-async function createUser(req, res) {
+function createUser(req, res) {
     const currentUsers = {...users}.users;
     const newUser = { ...req.body, id: currentUsers.length+1 };
     const updatedUsers = [...currentUsers, newUser];
 
     try {
-        await fs.writeFile(`${__dirname}/../../data/users.json`, JSON.stringify({ users: updatedUsers }), () => {
+        fs.writeFile(`${__dirname}/../../data/users.json`, JSON.stringify({ users: updatedUsers }), () => {
             res.status(201).json({
                 status: 'success',
                 message: 'New user successfully saved into DB',
