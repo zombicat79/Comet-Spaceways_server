@@ -1,24 +1,27 @@
 const express = require('express');
-const { createUser, checkBody } = require('./../controllers/users-controller');
+
+let usersControllers = {};
+if (process.env.NODE_ENV === 'development') {
+    usersControllers = require('./../controllers/users-controller');
+} else {
+    // Change file request below when using real DB!!!
+    usersControllers = require('./../controllers/users-controller');
+}
+const { checkID, getAllUsers, getUser, createUser, checkRequiredProps, checkDisallowedProps, updateUser, deleteUser } = usersControllers;
 
 const usersRouter = express.Router();
 
+// MIDDLEWARE STACK
+usersRouter.param('id', checkID)
+
+// ROUTES
 usersRouter.route('/')
-    .get((req, res) => {
-        console.log(req);
-        res.status(200).send('Users router was hit!')
-    })
-    .post(checkBody, createUser);
+    .get(getAllUsers)
+    .post(checkRequiredProps, checkDisallowedProps, createUser);
 
 usersRouter.route('/:id')
-    .get((req, res) => {
-        // Route controller to be defined
-    })
-    .patch((req, res) => {
-        // Route controller to be defined
-    })
-    .delete((req, res) => {
-        // Route controller to be defined
-    });
+    .get(getUser)
+    .patch(checkDisallowedProps, updateUser)
+    .delete(deleteUser);
 
 module.exports = usersRouter;

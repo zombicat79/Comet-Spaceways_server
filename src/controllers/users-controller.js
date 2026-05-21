@@ -1,9 +1,37 @@
 const fs = require('fs');
 const userModel = require('./../../data/models/user-model');
 
-const users = JSON.parse(fs.readFileSync(`${__dirname}/../../data/users.json`));
+const usersData = JSON.parse(fs.readFileSync(`${__dirname}/../../data/users.json`));
 
-function checkBody(req, res, next) {
+function checkID(req, res, next, value) {
+    const targetUser = {...usersData}.users.find((el) => el.id === +value);
+    
+    if (!targetUser) {
+        return res.status(404).json({
+            status: 'fail',
+            message: `User with ID: ${value} does not exist in the DB!`
+        });
+    }
+
+    req.target = targetUser;
+    next();
+}
+
+function getAllUsers(req, res) {
+    res.status(200).json({
+        status: 'success',
+        data: usersData
+    });
+}
+
+function getUser (req, res) {
+    res.status(200).json({
+        status: 'success',
+        data: req.target
+    });
+}
+
+function checkRequiredProps(req, res, next) {
     userModel.forEach((prop) => {
         if (!(prop in req.body)) {
             return res.status(400).json({
@@ -15,8 +43,20 @@ function checkBody(req, res, next) {
     next();
 }
 
+function checkDisallowedProps(req, res, next) {
+    for (const prop in req.body) {
+        if (!(userModel.includes(prop))) {
+            return res.status(400).json({
+                status: 'fail',
+                message: `${prop} property is not allowed`
+            });
+        }
+    }
+    next();
+}
+
 function createUser(req, res) {
-    const currentUsers = {...users}.users;
+    const currentUsers = {...usersData}.users;
     const newUser = { ...req.body, id: currentUsers.length+1 };
     const updatedUsers = [...currentUsers, newUser];
 
@@ -24,7 +64,6 @@ function createUser(req, res) {
         fs.writeFile(`${__dirname}/../../data/users.json`, JSON.stringify({ users: updatedUsers }), () => {
             res.status(201).json({
                 status: 'success',
-                message: 'New user successfully saved into DB',
                 data: updatedUsers
             });
         });
@@ -32,11 +71,59 @@ function createUser(req, res) {
         res.status(500).json({
             status: 'error',
             message: err
-        })
+        });
+    }
+}
+
+function updateUser(req, res) {
+    const updatedUser = {...req.target, ...req.body};
+    const updatedData = {...usersData}.users.map((el) => {
+        if (el.id === req.target.id) return updatedUser;
+        return el;
+    });
+
+    try {
+        fs.writeFile(`${__dirname}/../../data/users.json`, JSON.stringify({ users: updatedData }), () => {
+            res.status(200).json({
+                status: 'success',
+                data: {
+                    previous: req.target,
+                    updated: updatedUser
+                }
+            });
+        });
+    } catch(err) {
+        res.status(500).json({
+            status: 'error',
+            message: err
+        });
+    }
+}
+
+function deleteUser(req, res) {
+    const updatedData = {...usersData}.users.filter((el) => el.id !== req.target.id)
+
+    try {
+        fs.writeFile(`${__dirname}/../../data/users.json`, JSON.stringify({ users: updatedData }), () => {
+            res.status(204).json({
+                status: 'success'
+            })
+        });
+    } catch(err) {
+        res.status(500).json({
+            status: 'error',
+            message: err
+        });
     }
 }
 
 module.exports = {
-    checkBody,
-    createUser
+    checkID,
+    getAllUsers,
+    getUser,
+    checkRequiredProps,
+    checkDisallowedProps,
+    createUser,
+    updateUser,
+    deleteUser
 }
