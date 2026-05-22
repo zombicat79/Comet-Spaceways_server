@@ -236,14 +236,14 @@
                 "planetary surface",
                 "deep space"
             ],
-            "uses": [
-                "tourism",
-                "habitation",
-                "mining",
-                "industry",
-                "science",
-                "exploration"
-            ],
+        "uses": [
+            "tourism",
+            "habitation",
+            "mining",
+            "industry",
+            "science",
+            "exploration"
+        ],
             "intro": "Humanity's first colony on an alien planet",
             "description": "Step into the future and be part of history! New Olympus, the first permanent human settlement on Mars, offers an unprecedented opportunity to live, work, and explore on the Red Planet. Whether you're a pioneering scientist, an ambitious entrepreneur, or an adventurous traveler, this thriving colony is the place to be.",
             "promotional_catch": "Become part of a legacy of pioneers, shaping the future of humanity on Mars.",
@@ -399,26 +399,6 @@
                 "nova-thalassa4.webp"
             ],
             "lowest_accessibility": 750
-        },
-        {
-            "id": 10,
-            "full_name": "Europa"
-        },
-        {
-            "id": 11,
-            "full_name": "Planet X"
-        },
-        {
-            "id": 12,
-            "full_name": "Pandora"
-        },
-        {
-            "id": 13,
-            "full_name": "Endor"
-        },
-        {
-            "id": 14,
-            "full_name": "Io"
         }
     ]
 }

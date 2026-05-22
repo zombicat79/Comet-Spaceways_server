@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const destinations = JSON.parse(fs.readFileSync(`${__dirname}/../../data/destinations.json`));
+const destinations = JSON.parse(fs.readFileSync(`${__dirname}/../../db/collections/destinations.json`));
 
 function checkID(req, res, next, value) {
     const targetDestination = {...destinations}.destinations.find(el => el.id === +value);
@@ -44,7 +44,7 @@ async function createDestination(req, res) {
     updatedDestinations.destinations.push({ id: lastId+1, ...req.body });
 
     try {
-        fs.writeFile(`${__dirname}/../../data/destinations.json`, JSON.stringify(updatedDestinations), () => {
+        fs.writeFile(`${__dirname}/../../db/collections/destinations.json`, JSON.stringify(updatedDestinations), () => {
             res.status(201).json({
                 status: 'success',
                 message: 'New destination successfully saved to DB',
@@ -68,7 +68,7 @@ function editDestination(req, res) {
     })
 
     try {
-        fs.writeFile(`${__dirname}/../../data/destinations.json`, JSON.stringify({ destinations: updatedDestinations }), () => {
+        fs.writeFile(`${__dirname}/../../db/collections/destinations.json`, JSON.stringify({ destinations: updatedDestinations }), () => {
             res.status(200).json({
                 status: 'success',
                 message: `Destination with ID: ${req.target.id} successfully modified`,
@@ -87,7 +87,7 @@ function deleteDestination(req, res) {
     const updatedDestinations = {...destinations}.destinations.filter((el => el.id !== +req.target.id));
 
     try {
-        fs.writeFile(`${__dirname}/../../data/destinations.json`, JSON.stringify({ destinations: updatedDestinations }), () => {
+        fs.writeFile(`${__dirname}/../../db/collections/destinations.json`, JSON.stringify({ destinations: updatedDestinations }), () => {
             res.status(204).json({
                 status: 'success',
                 message: `Destination with ID: ${req.target.id} successfully deleted`,

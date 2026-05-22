@@ -10,6 +10,7 @@ const userModel = [
     'avatar',
     'username',
     'password',
+    'email',
     'health',
     'strength',
     'intelligence',

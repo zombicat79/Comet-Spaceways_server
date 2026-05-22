@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon server.js",
-    "start": "NODE_ENV=production nodemon server.js"
+    "start": "NODE_ENV=production nodemon server.js",
+    "reset:db": "DB_RESET_MODE=total node db/reset-db.js",
+    "reset:users": "DB_RESET_MODE=partial DB_RESET_COLLECTION=users node db/reset-db.js",
+    "reset:destinations": "DB_RESET_MODE=partial DB_RESET_COLLECTION=destinations node db/reset-db.js",
+    "reset:flights": "DB_RESET_MODE=partial DB_RESET_COLLECTION=flights node db/reset-db.js",
+    "reset:races": "DB_RESET_MODE=partial DB_RESET_COLLECTION=races node db/reset-db.js"
   },
   "author": "David Castejon Ferrer",
   "license": "ISC",
@@ -14,6 +19,7 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "dotenv": "^17.4.2",
     "nodemon": "^3.1.14"
   }
 }

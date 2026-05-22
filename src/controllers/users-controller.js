@@ -1,7 +1,7 @@
 const fs = require('fs');
-const userModel = require('./../../data/models/user-model');
+const userModel = require('../../db/models/user-model');
 
-const usersData = JSON.parse(fs.readFileSync(`${__dirname}/../../data/users.json`));
+const usersData = JSON.parse(fs.readFileSync(`${__dirname}/../../db/collections/users.json`));
 
 function checkID(req, res, next, value) {
     const targetUser = {...usersData}.users.find((el) => el.id === +value);
@@ -61,7 +61,7 @@ function createUser(req, res) {
     const updatedUsers = [...currentUsers, newUser];
 
     try {
-        fs.writeFile(`${__dirname}/../../data/users.json`, JSON.stringify({ users: updatedUsers }), () => {
+        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedUsers }), () => {
             res.status(201).json({
                 status: 'success',
                 data: updatedUsers
@@ -83,7 +83,7 @@ function updateUser(req, res) {
     });
 
     try {
-        fs.writeFile(`${__dirname}/../../data/users.json`, JSON.stringify({ users: updatedData }), () => {
+        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
             res.status(200).json({
                 status: 'success',
                 data: {
@@ -104,7 +104,7 @@ function deleteUser(req, res) {
     const updatedData = {...usersData}.users.filter((el) => el.id !== req.target.id)
 
     try {
-        fs.writeFile(`${__dirname}/../../data/users.json`, JSON.stringify({ users: updatedData }), () => {
+        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
             res.status(204).json({
                 status: 'success'
             })
