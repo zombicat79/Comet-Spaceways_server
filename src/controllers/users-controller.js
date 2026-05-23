@@ -67,7 +67,7 @@ function checkDisallowedProps(req, res, next) {
 
 function createUser(req, res) {
     const currentUsers = {...usersData}.users;
-    const newUser = { ...req.body, id: currentUsers.length+1 };
+    const newUser = { ...req.body, id: currentUsers[currentUsers.length-1].id + 1 };
     const updatedUsers = [...currentUsers, newUser];
 
     try {
