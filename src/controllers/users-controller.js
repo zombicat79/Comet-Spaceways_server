@@ -32,14 +32,24 @@ function getUser (req, res) {
 }
 
 function checkRequiredProps(req, res, next) {
-    userModel.forEach((prop) => {
+    /* userModel.forEach((prop) => {
+        if (!(prop in req.body)) {
+            return res.status(400).json({
+                status: 'fail',
+                message: `${prop} property is missing in the data that was sent. It is mandatory to include it`
+            });
+            break;
+        }
+    }); */
+    for (const prop of userModel) {
         if (!(prop in req.body)) {
             return res.status(400).json({
                 status: 'fail',
                 message: `${prop} property is missing in the data that was sent. It is mandatory to include it`
             });
         }
-    });
+    }
+    console.log('before next')
     next();
 }
 
