@@ -32,15 +32,6 @@ function getUser (req, res) {
 }
 
 function checkRequiredProps(req, res, next) {
-    /* userModel.forEach((prop) => {
-        if (!(prop in req.body)) {
-            return res.status(400).json({
-                status: 'fail',
-                message: `${prop} property is missing in the data that was sent. It is mandatory to include it`
-            });
-            break;
-        }
-    }); */
     for (const prop of userModel) {
         if (!(prop in req.body)) {
             return res.status(400).json({
@@ -49,7 +40,6 @@ function checkRequiredProps(req, res, next) {
             });
         }
     }
-    console.log('before next')
     next();
 }
 
@@ -67,7 +57,12 @@ function checkDisallowedProps(req, res, next) {
 
 function createUser(req, res) {
     const currentUsers = {...usersData}.users;
-    const newUser = { ...req.body, id: currentUsers[currentUsers.length-1].id + 1 };
+    const newUser = { 
+        ...req.body, 
+        id: currentUsers[currentUsers.length-1]
+            ? currentUsers[currentUsers.length-1].id + 1
+            : 1
+    };
     const updatedUsers = [...currentUsers, newUser];
 
     try {
