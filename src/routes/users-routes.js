@@ -7,12 +7,13 @@ if (process.env.NODE_ENV === 'development') {
     // Change file request below when using real DB!!!
     usersControllers = require('./../controllers/users-controller');
 }
-const { checkID, getAllUsers, getUser, createUser, checkRequiredProps, checkDisallowedProps, updateUser, deleteUser } = usersControllers;
+const { fetchUptodateData, checkID, getAllUsers, getUser, createUser, checkRequiredProps, checkDisallowedProps, updateUser, deleteUser } = usersControllers;
 
 const usersRouter = express.Router();
 
 // MIDDLEWARE STACK
-usersRouter.param('id', checkID)
+usersRouter.use(fetchUptodateData);
+usersRouter.param('id', checkID);
 
 // ROUTES
 usersRouter.route('/')

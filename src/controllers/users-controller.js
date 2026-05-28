@@ -1,10 +1,25 @@
 const fs = require('fs');
+const { readFile } = require('node:fs/promises');
 const userModel = require('../../db/models/user-model');
 
 const usersData = JSON.parse(fs.readFileSync(`${__dirname}/../../db/collections/users.json`));
 
+// MIDDLEWARE FUNCTIONS
+async function fetchUptodateData(req, res, next) {
+    try {
+        const dbContent = await readFile(`${__dirname}/../../db/collections/users.json`, { encoding: 'utf8' });
+        console.log('New data returned!');
+        req.dbReading = JSON.parse(dbContent);
+    } catch(err) {
+        console.log('Old data returned!');
+        req.dbReading = usersData;
+    } finally {
+        next();
+    }
+}
+
 function checkID(req, res, next, value) {
-    const targetUser = {...usersData}.users.find((el) => el.id === +value);
+    const targetUser = {...req.dbReading}.users.find((el) => el.id === +value);
     
     if (!targetUser) {
         return res.status(404).json({
@@ -15,20 +30,6 @@ function checkID(req, res, next, value) {
 
     req.target = targetUser;
     next();
-}
-
-function getAllUsers(req, res) {
-    res.status(200).json({
-        status: 'success',
-        data: usersData
-    });
-}
-
-function getUser (req, res) {
-    res.status(200).json({
-        status: 'success',
-        data: req.target
-    });
 }
 
 function checkRequiredProps(req, res, next) {
@@ -55,8 +56,23 @@ function checkDisallowedProps(req, res, next) {
     next();
 }
 
+// ROUTE HANDLERS
+function getAllUsers(req, res) {
+    res.status(200).json({
+        status: 'success',
+        data: req.dbReading
+    });
+}
+
+function getUser (req, res) {
+    res.status(200).json({
+        status: 'success',
+        data: req.target
+    });
+}
+
 function createUser(req, res) {
-    const currentUsers = {...usersData}.users;
+    const currentUsers = {...req.dbReading}.users;
     const newUser = { 
         ...req.body, 
         id: currentUsers[currentUsers.length-1]
@@ -82,7 +98,7 @@ function createUser(req, res) {
 
 function updateUser(req, res) {
     const updatedUser = {...req.target, ...req.body};
-    const updatedData = {...usersData}.users.map((el) => {
+    const updatedData = {...req.dbReading}.users.map((el) => {
         if (el.id === req.target.id) return updatedUser;
         return el;
     });
@@ -106,7 +122,7 @@ function updateUser(req, res) {
 }
 
 function deleteUser(req, res) {
-    const updatedData = {...usersData}.users.filter((el) => el.id !== req.target.id)
+    const updatedData = {...req.dbReading}.users.filter((el) => el.id !== req.target.id)
 
     try {
         fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
@@ -124,6 +140,7 @@ function deleteUser(req, res) {
 
 module.exports = {
     checkID,
+    fetchUptodateData,
     getAllUsers,
     getUser,
     checkRequiredProps,
