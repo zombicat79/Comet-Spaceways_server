@@ -2,10 +2,10 @@ const express = require('express');
 
 let usersControllers = {};
 if (process.env.NODE_ENV === 'development') {
-    usersControllers = require('./../controllers/users-controller');
+    usersControllers = require('../controllers/users-controller.dev');
 } else {
     // Change file request below when using real DB!!!
-    usersControllers = require('./../controllers/users-controller');
+    usersControllers = require('../controllers/users-controller.prod');
 }
 const { fetchUptodateData, checkID, getAllUsers, getUser, createUser, checkRequiredProps, checkDisallowedProps, updateUser, deleteUser } = usersControllers;
 

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { readFile } = require('node:fs/promises');
-const userModel = require('../../db/models/user-model');
+const userModel = require('../../db/models/user-model.dev');
 
 const usersData = JSON.parse(fs.readFileSync(`${__dirname}/../../db/collections/users.json`));
 
