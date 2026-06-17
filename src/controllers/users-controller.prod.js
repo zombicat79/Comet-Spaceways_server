@@ -1,21 +1,12 @@
-const UserModel = require('../../db/models/user-model.prod');
+const User = require('../../db/models/user-model.prod');
 
 // MIDDLEWARE FUNCTIONS
+// * --- Must be preserved as void functions to maintain code integrity of 'users-routes.js' file --- *
 function fetchUptodateData(req, res, next) {
     next();
 }
 
 function checkID(req, res, next, value) {
-    /*const targetUser = {...req.dbReading}.users.find((el) => el.id === +value);
-    
-    if (!targetUser) {
-        return res.status(404).json({
-            status: 'fail',
-            message: `User with ID: ${value} does not exist in the DB!`
-        });
-    }
-
-    req.target = targetUser; */
     next();
 }
 
@@ -48,7 +39,7 @@ function getUser (req, res) {
 
 async function createUser(req, res) {
     try {
-        const newUser = await new UserModel(req.body).save();
+        const newUser = await new User(req.body).save();
         res.status(201).json({
             status: 'success',
             data: newUser

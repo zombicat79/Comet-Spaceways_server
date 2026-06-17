@@ -3,9 +3,10 @@ const express = require('express');
 let usersControllers = {};
 if (process.env.NODE_ENV === 'development') {
     usersControllers = require('../controllers/users-controller.dev');
+    // Controller interacts with local JSON database file managed by fs module
 } else {
-    // Change file request below when using real DB!!!
     usersControllers = require('../controllers/users-controller.prod');
+    // Controller interacts with remote MongoDB database
 }
 const { fetchUptodateData, checkID, getAllUsers, getUser, createUser, checkRequiredProps, checkDisallowedProps, updateUser, deleteUser } = usersControllers;
 

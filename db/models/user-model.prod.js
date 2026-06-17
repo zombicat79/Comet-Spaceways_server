@@ -34,6 +34,6 @@ const userSchema = new mongoose.Schema({
     questHistory: [String]
 });
 
-const UserModel = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
-module.exports = UserModel;
+module.exports = User;
