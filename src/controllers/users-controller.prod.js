@@ -19,27 +19,39 @@ function checkDisallowedProps(req, res, next) {
 }
 
 // ROUTE HANDLERS
-function getAllUsers(req, res) {
-    /* res.status(200).json({
-        status: 'success',
-        data: req.dbReading
-    }); */
-
-    res.send('under construction');
+async function getAllUsers(req, res) {
+    try {
+        const users = await User.find();
+        res.status(200).json({
+            status: "success",
+            data: users
+        })
+    } catch(err) {
+        res.status(404).json({
+            status: "fail",
+            message: err
+        });
+    }
 }
 
-function getUser (req, res) {
-    /* res.status(200).json({
-        status: 'success',
-        data: req.target
-    }); */
-
-    res.send('under construction');
+async function getUser (req, res) {
+    try {
+        const user = await User.findById(req.params.id);
+        res.status(200).json({
+            status: "success",
+            data: user
+        })
+    } catch(err) {
+        res.status(404).json({
+            status: "fail",
+            message: err
+        });
+    }
 }
 
 async function createUser(req, res) {
     try {
-        const newUser = await new User(req.body).save();
+        const newUser = await User.create(req.body);
         res.status(201).json({
             status: 'success',
             data: newUser
@@ -52,50 +64,36 @@ async function createUser(req, res) {
     }
 }
 
-function updateUser(req, res) {
-    /* const updatedUser = {...req.target, ...req.body};
-    const updatedData = {...req.dbReading}.users.map((el) => {
-        if (el.id === req.target.id) return updatedUser;
-        return el;
-    });
-
+async function updateUser(req, res) {
     try {
-        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
-            res.status(200).json({
-                status: 'success',
-                data: {
-                    previous: req.target,
-                    updated: updatedUser
-                }
-            });
+        const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true
         });
+        res.status(200).json({
+            status: "success",
+            data: updatedUser
+        })
     } catch(err) {
         res.status(500).json({
-            status: 'error',
+            status: "error",
             message: err
-        });
-    } */
-
-    res.send('under construction');
+        })
+    }
 }
 
-function deleteUser(req, res) {
-    /* const updatedData = {...req.dbReading}.users.filter((el) => el.id !== req.target.id)
-
+async function deleteUser(req, res) {
     try {
-        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
-            res.status(204).json({
-                status: 'success'
-            })
-        });
+        await User.findByIdAndDelete(req.params.id);
+        res.status(204).json({
+            status: "success"
+        })
     } catch(err) {
         res.status(500).json({
-            status: 'error',
+            status: "error",
             message: err
-        });
-    } */
-
-    res.send('under construction');
+        })
+    }
 }
 
 module.exports = {
