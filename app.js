@@ -9,7 +9,7 @@ const racesRouter = require('./src/routes/races-routes');
 const app = express();
 
 // MIDDLEWARE STACK
-app.use(cors());
+app.use(cors({ origin: ["https://cometspaceways.zombiecat.dev", "http://localhost:5173"]} ));
 app.use(express.json());
 
 // ROUTERS

@@ -36,7 +36,7 @@ async function getAllUsers(req, res) {
 
 async function getUser (req, res) {
     try {
-        const user = await User.findById(req.params.id);
+        const user = await User.findOne({ username: req.params.id });
         res.status(200).json({
             status: "success",
             data: user
@@ -66,7 +66,7 @@ async function createUser(req, res) {
 
 async function updateUser(req, res) {
     try {
-        const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+        const updatedUser = await User.findOneAndUpdate({ username: req.params.id }, req.body, {
             new: true,
             runValidators: true
         });
@@ -84,7 +84,7 @@ async function updateUser(req, res) {
 
 async function deleteUser(req, res) {
     try {
-        await User.findByIdAndDelete(req.params.id);
+        await User.findOneAndDelete({ username: req.params.id });
         res.status(204).json({
             status: "success"
         })
