@@ -122,7 +122,7 @@ function updateUser(req, res) {
 }
 
 function deleteUser(req, res) {
-    const updatedData = {...req.dbReading}.users.filter((el) => el.id !== req.target.id)
+    const updatedData = {...req.dbReading}.users.filter((el) => el.id !== req.target.id);
 
     try {
         fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
