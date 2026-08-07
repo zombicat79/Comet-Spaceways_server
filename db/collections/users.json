@@ -12,7 +12,7 @@
             "avatar": "bicho.png",
             "username": "spacepene",
             "password": "Qtql405@",
-            "email": "penes@gmail.com",
+            "email": "wendels@hotmail.com",
             "health": 10,
             "strength": 10,
             "intelligence": 10,
@@ -71,6 +71,188 @@
                 "resource-extraction"
             ],
             "id": 4
+        },
+        {
+            "name": "TRATATA",
+            "surname": "PIBOSO",
+            "race": "insectoid",
+            "nationality": null,
+            "origin": "milky_way",
+            "build": null,
+            "gender": null,
+            "job": "colonization",
+            "avatar": "insectoid",
+            "username": "friskoles",
+            "password": "Qtql405@",
+            "email": "poldraso@gmail.com",
+            "money": 50,
+            "inventory": [],
+            "activeFlight": {
+                "id": null,
+                "status": null
+            },
+            "flightHistory": [],
+            "activeQuest": {
+                "id": null,
+                "status": null
+            },
+            "questHistory": [],
+            "health": 15,
+            "strength": 15,
+            "intelligence": 12,
+            "wisdom": 14,
+            "dexterity": 19,
+            "diplomacy": 12,
+            "skills": [
+                "cooperation",
+                "multitasking",
+                "emotion-suppression",
+                "communication",
+                "self-sustenance",
+                "resource-extraction"
+            ],
+            "id": 5
+        },
+        {
+            "name": "malonder",
+            "surname": "pilantres",
+            "race": "amoebian",
+            "nationality": null,
+            "origin": "other_galaxies",
+            "build": null,
+            "gender": null,
+            "job": "colonization",
+            "avatar": "amoebian",
+            "username": "fisomeles",
+            "password": "Qtql405@",
+            "email": "ballobaras@gmail.com",
+            "money": 50,
+            "inventory": [],
+            "activeFlight": {
+                "id": null,
+                "status": null
+            },
+            "flightHistory": [],
+            "activeQuest": {
+                "id": null,
+                "status": null
+            },
+            "questHistory": [],
+            "health": 11,
+            "strength": 10,
+            "intelligence": 6,
+            "wisdom": 7,
+            "dexterity": 13,
+            "diplomacy": 9,
+            "skills": [
+                "cooperation",
+                "multitasking",
+                "emotion-suppression",
+                "communication",
+                "self-sustenance",
+                "resource-extraction",
+                "transversality",
+                "regeneration",
+                "stealthiness",
+                "navigation"
+            ],
+            "id": 6
+        },
+        {
+            "name": "llonofras",
+            "surname": "trobas",
+            "race": "aetherian",
+            "nationality": null,
+            "origin": "other_dimensions",
+            "build": null,
+            "gender": null,
+            "job": "scientific_research",
+            "avatar": "aetherian",
+            "username": "ramoncin",
+            "password": "Qtql405@",
+            "email": "llamales@hotmail.com",
+            "money": 50,
+            "inventory": [],
+            "activeFlight": {
+                "id": null,
+                "status": null
+            },
+            "flightHistory": [],
+            "activeQuest": {
+                "id": null,
+                "status": null
+            },
+            "questHistory": [],
+            "health": 8,
+            "strength": 8,
+            "intelligence": 19,
+            "wisdom": 24,
+            "dexterity": 11,
+            "diplomacy": 16,
+            "skills": [
+                "cooperation",
+                "multitasking",
+                "emotion-suppression",
+                "communication",
+                "self-sustenance",
+                "resource-extraction",
+                "transversality",
+                "regeneration",
+                "stealthiness",
+                "navigation",
+                "psionics",
+                "superthinking",
+                "transmutation"
+            ],
+            "id": 7
+        },
+        {
+            "name": "llonofras",
+            "surname": "trobas",
+            "race": "aetherian",
+            "nationality": null,
+            "origin": "other_dimensions",
+            "build": null,
+            "gender": null,
+            "job": "scientific_research",
+            "avatar": "aetherian",
+            "username": "kukulanto",
+            "password": "Qtql405@",
+            "email": "llamales@hotmail.com",
+            "money": 50,
+            "inventory": [],
+            "activeFlight": {
+                "id": null,
+                "status": null
+            },
+            "flightHistory": [],
+            "activeQuest": {
+                "id": null,
+                "status": null
+            },
+            "questHistory": [],
+            "health": 8,
+            "strength": 8,
+            "intelligence": 19,
+            "wisdom": 24,
+            "dexterity": 11,
+            "diplomacy": 16,
+            "skills": [
+                "cooperation",
+                "multitasking",
+                "emotion-suppression",
+                "communication",
+                "self-sustenance",
+                "resource-extraction",
+                "transversality",
+                "regeneration",
+                "stealthiness",
+                "navigation",
+                "psionics",
+                "superthinking",
+                "transmutation"
+            ],
+            "id": 8
         }
     ]
 }

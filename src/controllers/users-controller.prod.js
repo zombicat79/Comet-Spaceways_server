@@ -1,20 +1,13 @@
 const User = require('../../db/models/user-model.prod');
 
 // MIDDLEWARE FUNCTIONS
-// * --- Must be preserved as void functions to maintain code integrity of 'users-routes.js' file --- *
-function fetchUptodateData(req, res, next) {
-    next();
-}
-
-function checkID(req, res, next, value) {
-    next();
-}
-
-function checkRequiredProps(req, res, next) {
-    next();
-}
-
-function checkDisallowedProps(req, res, next) {
+// * --- Needed to determine whether the param passed into the URL is an ID or a USERNAME --- *
+function checkParamType(req, res, next, value) {
+    if (/^\d+$/.test(value) || /^\w{24}$/.test(value)) {
+        req.paramType = 'id';
+    } else {
+        req.paramType = 'username';
+    }
     next();
 }
 
@@ -34,19 +27,8 @@ async function getAllUsers(req, res) {
     }
 }
 
-async function getUser (req, res) {
-    try {
-        const user = await User.findOne({ username: req.params.id });
-        res.status(200).json({
-            status: "success",
-            data: user
-        })
-    } catch(err) {
-        res.status(404).json({
-            status: "fail",
-            message: err
-        });
-    }
+function getUser (req, res) {
+    req.paramType === 'id' ? getUserById(req, res) : getUserByUsername(req, res);
 }
 
 async function createUser(req, res) {
@@ -66,9 +48,9 @@ async function createUser(req, res) {
 
 async function updateUser(req, res) {
     try {
-        const updatedUser = await User.findOneAndUpdate({ username: req.params.id }, req.body, {
-            new: true,
-            runValidators: true
+        const updatedUser = await User.findOneAndUpdate({ _id: req.params.identifier }, req.body, {
+            runValidators: true,
+            returnDocument: 'after'
         });
         res.status(200).json({
             status: "success",
@@ -84,7 +66,7 @@ async function updateUser(req, res) {
 
 async function deleteUser(req, res) {
     try {
-        await User.findOneAndDelete({ username: req.params.id });
+        await User.findOneAndDelete({ _id: req.params.identifier });
         res.status(204).json({
             status: "success"
         })
@@ -96,13 +78,50 @@ async function deleteUser(req, res) {
     }
 }
 
+// GET USER HELPERS
+async function getUserById (req, res) {
+    try {
+        const user = await User.findOne({ _id: req.params.identifier });
+        res.status(200).json({
+            status: "success",
+            data: user
+        })
+    } catch(err) {
+        res.status(404).json({
+            status: "fail",
+            message: err
+        });
+    }
+}
+
+async function getUserByUsername (req, res) {
+    const providedPwd = req.body.password;
+    
+    try {
+        const user = await User.findOne({ username: req.params.identifier });
+        if (user.password === providedPwd) {
+            res.status(200).json({
+                status: "success",
+                data: user
+            })
+        } else {
+            res.status(400).json({
+                status: "fail",
+                message: "Identification not successful"
+            })
+        }
+    } catch(err) {
+        res.status(404).json({
+            status: "fail",
+            message: err
+        });
+    }
+}
+
 module.exports = {
-    checkID,
-    fetchUptodateData,
+    checkParamType,
     getAllUsers,
     getUser,
-    checkRequiredProps,
-    checkDisallowedProps,
     createUser,
     updateUser,
     deleteUser
