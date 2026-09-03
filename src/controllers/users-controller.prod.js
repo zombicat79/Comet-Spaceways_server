@@ -96,7 +96,7 @@ async function getUserById (req, res) {
 
 async function getUserByUsername (req, res) {
     const providedPwd = req.body.password;
-    
+
     try {
         const user = await User.findOne({ username: req.params.identifier });
         if (user.password === providedPwd) {
@@ -118,9 +118,40 @@ async function getUserByUsername (req, res) {
     }
 }
 
+// GET AGGREGATION ROUTES
+async function getAverages(req, res) {
+    try {
+        const averages = await User.aggregate([
+            {
+                $match: {}
+            },
+            {
+                $group: {
+                    _id: 'averages',
+                    avg_strength: { $avg: '$strength' },
+                    avg_intelligence: { $avg: '$intelligence' },
+                    avg_wisdom: { $avg: '$wisdom' },
+                    avg_dexterity: { $avg: '$dexterity' },
+                    avg_diplomacy: { $avg: '$diplomacy' },
+                }
+            }
+        ]);
+        res.status(200).json({
+            status: "success",
+            data: averages[0]
+        });
+    } catch(err) {
+        res.status(404).json({
+            status: "fail",
+            message: err
+        });
+    }
+}
+
 module.exports = {
     checkParamType,
     getAllUsers,
+    getAverages,
     getUser,
     createUser,
     updateUser,

@@ -38,7 +38,11 @@ const userSchema = new mongoose.Schema({
         required: [true, "A user must specify an email"],
         unique: true
     },
-    health: {
+    maxHealth: {
+        type: Number,
+        default: 0
+    },
+    actualHealth: {
         type: Number,
         default: 0
     },
@@ -73,6 +77,11 @@ const userSchema = new mongoose.Schema({
     activeQuest: {},
     questHistory: [String]
 });
+
+/*userSchema.pre('findOne', function(next) {
+    console.log('hello')
+    next();
+});*/
 
 const User = mongoose.model('User', userSchema);
 

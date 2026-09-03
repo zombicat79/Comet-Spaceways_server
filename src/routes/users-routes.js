@@ -22,13 +22,11 @@ if (process.env.NODE_ENV === 'development') {
         .get(getUser)
         .patch(checkDisallowedProps, updateUser)
         .delete(deleteUser);
-
-    module.exports = usersRouter;
 } else {
     usersControllers = require('../controllers/users-controller.prod');
     // Controller interacts with remote MongoDB database
 
-    const { checkParamType, getAllUsers, getUser, createUser, updateUser, deleteUser } = usersControllers;
+    const { checkParamType, getAllUsers, getUser, getAverages, createUser, updateUser, deleteUser } = usersControllers;
 
     // MIDDLEWARE STACK
     usersRouter.param('identifier', checkParamType);
@@ -37,6 +35,9 @@ if (process.env.NODE_ENV === 'development') {
     usersRouter.route('/')
         .get(getAllUsers)
         .post(createUser);
+
+    usersRouter.route('/average-characteristics')
+        .get(getAverages);
 
     usersRouter.route('/:identifier')
         .get(checkParamType, getUser)
