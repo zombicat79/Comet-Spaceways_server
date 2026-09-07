@@ -75,7 +75,40 @@ const userSchema = new mongoose.Schema({
     activeFlight: {},
     flightHistory: [String],
     activeQuest: {},
-    questHistory: [String]
+    questHistory: [String],
+    spacepass: {
+        id: {
+            type: String,
+            minLength: 9,
+            maxLength: 9,
+            unique: true
+        },
+        category: {
+            type: String,
+            enum: ["A+", "A", "B1", "B2", "C", "D"],
+            default: "D"
+        },
+        status: {
+            type: String,
+            enum: ["initial", "renewed", "blocked", "terminated"],
+            default: "initial"
+        },
+        issueDate: {
+            type: String
+        },
+        expiryDate: {
+            type: String
+        },
+        issuePlace: {
+            type: String,
+            default: "EAS"
+        },
+        serialNum: {
+            type: String,
+            minLength: 17,
+            maxLength: 17
+        }
+    }
 });
 
 /*userSchema.pre('findOne', function(next) {
