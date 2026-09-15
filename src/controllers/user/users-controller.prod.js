@@ -1,4 +1,4 @@
-const User = require('../../db/models/user-model.prod');
+const User = require('../../../db/models/user/user-model.prod');
 
 // MIDDLEWARE FUNCTIONS
 // * --- Needed to determine whether the param passed into the URL is an ID or a USERNAME --- *
@@ -14,7 +14,7 @@ function checkParamType(req, res, next, value) {
 // ROUTE HANDLERS
 async function getAllUsers(req, res) {
     try {
-        const users = await User.find();
+        const users = await User.find().populate('spacepass');
         res.status(200).json({
             status: "success",
             data: users
@@ -81,7 +81,7 @@ async function deleteUser(req, res) {
 // GET USER HELPERS
 async function getUserById (req, res) {
     try {
-        const user = await User.findOne({ _id: req.params.identifier });
+        const user = await User.findOne({ _id: req.params.identifier }).populate('spacepass');
         res.status(200).json({
             status: "success",
             data: user
@@ -98,7 +98,7 @@ async function getUserByUsername (req, res) {
     const providedPwd = req.body.password;
 
     try {
-        const user = await User.findOne({ username: req.params.identifier });
+        const user = await User.findOne({ username: req.params.identifier }).populate('spacepass');
         if (user.password === providedPwd) {
             res.status(200).json({
                 status: "success",

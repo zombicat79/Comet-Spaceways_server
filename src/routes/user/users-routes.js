@@ -4,7 +4,7 @@ const usersRouter = express.Router();
 
 let usersControllers = {};
 if (process.env.NODE_ENV === 'development') {
-    usersControllers = require('../controllers/users-controller.dev');
+    usersControllers = require('../../controllers/user/users-controller.dev');
     // Controller interacts with local JSON database file managed by fs module
 
     const { fetchUptodateData, checkID, getAllUsers, getUser, createUser, checkRequiredProps, checkDisallowedProps, updateUser, deleteUser } = usersControllers;
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'development') {
         .patch(checkDisallowedProps, updateUser)
         .delete(deleteUser);
 } else {
-    usersControllers = require('../controllers/users-controller.prod');
+    usersControllers = require('../../controllers/user/users-controller.prod');
     // Controller interacts with remote MongoDB database
 
     const { checkParamType, getAllUsers, getUser, getAverages, createUser, updateUser, deleteUser } = usersControllers;
