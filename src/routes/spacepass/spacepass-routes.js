@@ -1,19 +1,43 @@
 const express = require("express");
 
 const spacepassRouter = express.Router();
-const spacepassControllers = require("./../../controllers/spacepass/spacepass-controller.prod");
 
-const { checkParamType, getSpacepass, getAllSpacepasses, createSpacepass } = spacepassControllers;
+let spacepassControllers = {};
+if (process.env.NODE_ENV === 'development') {
+    spacepassControllers = require('../../controllers/spacepass/spacepass-controller.dev');
+    // Controller interacts with local JSON database file managed by fs module
 
-// MIDDLEWARE STACK
-spacepassRouter.param('identifier', checkParamType);
+    const { fetchUptodateData, checkID, getAllSpacepasses, getSpacepass, createSpacepass, checkRequiredProps, checkDisallowedProps, updateSpacepass, deleteSpacepass } = spacepassControllers;
 
-// ROUTES
-spacepassRouter.route('/')
-.get(getAllSpacepasses)
-.post(createSpacepass);
+    // MIDDLEWARE STACK
+    spacepassRouter.use(fetchUptodateData);
+    spacepassRouter.param('id', checkID);
 
-spacepassRouter.route('/:identifier')
-.get(checkParamType, getSpacepass);
+    // ROUTES
+    spacepassRouter.route('/')
+        .get(getAllSpacepasses)
+        .post(checkRequiredProps, checkDisallowedProps, createSpacepass);
+
+    spacepassRouter.route('/:id')
+        .get(getSpacepass)
+        .patch(checkDisallowedProps, updateSpacepass)
+        .delete(deleteSpacepass);
+} else {
+    spacepassControllers = require('../../controllers/user/users-controller.prod');
+    // Controller interacts with remote MongoDB database
+
+    const { checkParamType, getSpacepass, getAllSpacepasses, createSpacepass } = spacepassControllers;
+
+    // MIDDLEWARE STACK
+    spacepassRouter.param('identifier', checkParamType);
+
+    // ROUTES
+    spacepassRouter.route('/')
+        .get(getAllSpacepasses)
+        .post(createSpacepass);
+
+    spacepassRouter.route('/:identifier')
+        .get(checkParamType, getSpacepass);
+}
 
 module.exports = spacepassRouter;

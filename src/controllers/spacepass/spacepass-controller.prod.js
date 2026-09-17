@@ -1,4 +1,4 @@
-const Spacepass = require("./../../../db/models/spacepass/spacepass-model.prod");
+const Spacepass = require("../../../db/models/spacepass/spacepass-model.prod");
 
 // MIDDLEWARE FUNCTIONS
 // * --- Needed to determine whether the param passed into the URL is an ID or a USERNAME --- *
