@@ -2,12 +2,12 @@ const fs = require('fs');
 const { readFile } = require('node:fs/promises');
 const userModel = require('../../../db/models/user/user-model.dev');
 
-const usersData = JSON.parse(fs.readFileSync(`${__dirname}/../../db/collections/users.json`));
+const usersData = JSON.parse(fs.readFileSync(`${__dirname}/../../../db/collections/users.json`));
 
 // MIDDLEWARE FUNCTIONS
 async function fetchUptodateData(req, res, next) {
     try {
-        const dbContent = await readFile(`${__dirname}/../../db/collections/users.json`, { encoding: 'utf8' });
+        const dbContent = await readFile(`${__dirname}/../../../db/collections/users.json`, { encoding: 'utf8' });
         console.log('New data returned!');
         req.dbReading = JSON.parse(dbContent);
     } catch(err) {
@@ -82,7 +82,7 @@ function createUser(req, res) {
     const updatedUsers = [...currentUsers, newUser];
 
     try {
-        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedUsers }), () => {
+        fs.writeFile(`${__dirname}/../../../db/collections/users.json`, JSON.stringify({ users: updatedUsers }), () => {
             res.status(201).json({
                 status: 'success',
                 data: updatedUsers
@@ -104,7 +104,7 @@ function updateUser(req, res) {
     });
 
     try {
-        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
+        fs.writeFile(`${__dirname}/../../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
             res.status(200).json({
                 status: 'success',
                 data: {
@@ -125,7 +125,7 @@ function deleteUser(req, res) {
     const updatedData = {...req.dbReading}.users.filter((el) => el.id !== req.target.id);
 
     try {
-        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
+        fs.writeFile(`${__dirname}/../../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
             res.status(204).json({
                 status: 'success'
             })

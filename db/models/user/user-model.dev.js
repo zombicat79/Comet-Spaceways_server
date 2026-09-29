@@ -25,7 +25,7 @@ const userModel = [
     'flightHistory',
     'activeQuest',
     'questHistory',
-    'spacepass'
+    // 'spacepass'
 ]
 
 module.exports = userModel;

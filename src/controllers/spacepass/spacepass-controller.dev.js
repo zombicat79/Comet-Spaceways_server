@@ -2,7 +2,7 @@ const fs = require('fs');
 const { readFile } = require('node:fs/promises');
 const spacepassModel = require('../../../db/models/spacepass/spacepass-model.dev');
 
-const spacepassesData = JSON.parse(fs.readFileSync(`${__dirname}/../../db/collections/spacepasses.json`));
+const spacepassesData = JSON.parse(fs.readFileSync(`${__dirname}/../../../db/collections/spacepasses.json`));
 
 // MIDDLEWARE FUNCTIONS
 async function fetchUptodateData(req, res, next) {
