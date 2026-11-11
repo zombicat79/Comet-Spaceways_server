@@ -23,10 +23,10 @@ if (process.env.NODE_ENV === 'development') {
         .patch(checkDisallowedProps, updateSpacepass)
         .delete(deleteSpacepass);
 } else {
-    spacepassControllers = require('../../controllers/user/users-controller.prod');
+    spacepassControllers = require('../../controllers/spacepass/spacepass-controller.prod');
     // Controller interacts with remote MongoDB database
 
-    const { checkParamType, getSpacepass, getAllSpacepasses, createSpacepass } = spacepassControllers;
+    const { checkParamType, getSpacepassDetails, getAllSpacepasses, createSpacepass } = spacepassControllers;
 
     // MIDDLEWARE STACK
     spacepassRouter.param('identifier', checkParamType);
@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'development') {
         .post(createSpacepass);
 
     spacepassRouter.route('/:identifier')
-        .get(checkParamType, getSpacepass);
+        .get(checkParamType, getSpacepassDetails);
 }
 
 module.exports = spacepassRouter;

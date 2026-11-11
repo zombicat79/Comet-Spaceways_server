@@ -1,12 +1,12 @@
 const Spacepass = require("../../../db/models/spacepass/spacepass-model.prod");
 
 // MIDDLEWARE FUNCTIONS
-// * --- Needed to determine whether the param passed into the URL is an ID or a USERNAME --- *
+// * --- Needed to determine whether the param passed into the URL is a SPACEPASS NUMBER or an OWNER ID --- *
 function checkParamType(req, res, next, value) {
-    if (/^\d+$/.test(value) || /^\w{24}$/.test(value)) {
+    if (/^[A-Z]{3}\d{6}$/.test(value)) {
         req.paramType = 'passnumber';
     } else {
-        req.paramType = 'name';
+        req.paramType = 'owner-id';
     }
     next();
 }
@@ -27,16 +27,46 @@ async function getAllSpacepasses(req, res) {
     }
 }
 
-function getSpacepass (req, res) {
-    req.paramType === 'passnumber' ? getUserByPassnum(req, res) : getUserByName(req, res);
-}
-
 async function createSpacepass(req, res) {
     try {
-        const newUser = await User.create(req.body);
+        const newSpacepass = await Spacepass.create(req.body);
         res.status(201).json({
             status: 'success',
-            data: newUser
+            data: newSpacepass
+        });
+    } catch(err) {
+        res.status(500).json({
+            status: 'error',
+            message: err
+        });
+    }
+}
+
+function getSpacepassDetails (req, res) {
+    req.paramType === 'passnumber' ? getSpacepass(req, res) : getPassNum(req, res);
+}
+
+async function getPassNum(req, res) {
+    try {
+        const passNum = await Spacepass.findOne({ owner: req.params.identifier }, { passNum: 1});
+        res.status(200).json({
+            status: "success",
+            data: passNum
+        })
+    } catch(err) {
+        res.status(404).json({
+            status: "fail",
+            message: err
+        });
+    }
+}
+
+async function getSpacepass(req, res) {
+    try {
+        const spacepass = await Spacepass.findOne({ passNum: req.params.identifier });
+        res.status(201).json({
+            status: 'success',
+            data: spacepass
         });
     } catch(err) {
         res.status(500).json({
@@ -48,7 +78,7 @@ async function createSpacepass(req, res) {
 
 module.exports = {
     checkParamType,
-    getSpacepass,
+    getSpacepassDetails,
     getAllSpacepasses,
     createSpacepass
 }

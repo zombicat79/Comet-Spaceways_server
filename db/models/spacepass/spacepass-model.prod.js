@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const spacepassSchema = new mongoose.Schema({
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        unique: true
+    },   
     passNum: {
         type: String,
         minLength: 9,
@@ -25,12 +31,19 @@ const spacepassSchema = new mongoose.Schema({
     },
     issuePlace: {
         type: String,
+        minLength: 3,
+        maxLength: 3,
         default: "EAS"
+    },
+    namePrint: {
+        type: String,
+        minLength: 17,
+        unique: true
     },
     serialNum: {
         type: String,
         minLength: 17,
-        maxLength: 17
+        unique: true
     }
 });
 
