@@ -1,6 +1,8 @@
+// Controller interacts with with local JSON pseudo-database file managed by fs module
+
 const fs = require('fs');
 
-const flights = JSON.parse(fs.readFileSync(`${__dirname}/../../db/collections/flights.json`));
+const flights = JSON.parse(fs.readFileSync(`${__dirname}/../../../db/collections/flights.json`));
 
 function getAllFLights(req, res) {
     res.status(200).json({

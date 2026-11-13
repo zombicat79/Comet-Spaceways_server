@@ -1,5 +1,7 @@
+// REST API interacts with local JSON pseudo-database file managed by fs module
+
 const express = require('express');
-const { getAllDestinations, getDestination, createDestination, editDestination, deleteDestination, checkID, checkBody } = require('./../controllers/destinations-controller');
+const { getAllDestinations, getDestination, createDestination, editDestination, deleteDestination, checkID, checkBody } = require('./../../controllers/destinations/destinations-controller');
 
 const destinationsRouter = express.Router();
 

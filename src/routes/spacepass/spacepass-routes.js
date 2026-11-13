@@ -1,43 +1,22 @@
+// REST API interacts with remote MongoDB database
+
 const express = require("express");
 
-const spacepassRouter = express.Router();
+const spacepassesRouter = express.Router();
 
-let spacepassControllers = {};
-if (process.env.NODE_ENV === 'development') {
-    spacepassControllers = require('../../controllers/spacepass/spacepass-controller.dev');
-    // Controller interacts with local JSON database file managed by fs module
+// Controller interacts with remote MongoDB database
 
-    const { fetchUptodateData, checkID, getAllSpacepasses, getSpacepass, createSpacepass, checkRequiredProps, checkDisallowedProps, updateSpacepass, deleteSpacepass } = spacepassControllers;
+    const { checkParamType, getSpacepassDetails, getAllSpacepasses, createSpacepass } = require('../../controllers/spacepass/spacepass-controller');
 
     // MIDDLEWARE STACK
-    spacepassRouter.use(fetchUptodateData);
-    spacepassRouter.param('id', checkID);
+    spacepassesRouter.param('identifier', checkParamType);
 
     // ROUTES
-    spacepassRouter.route('/')
-        .get(getAllSpacepasses)
-        .post(checkRequiredProps, checkDisallowedProps, createSpacepass);
-
-    spacepassRouter.route('/:id')
-        .get(getSpacepass)
-        .patch(checkDisallowedProps, updateSpacepass)
-        .delete(deleteSpacepass);
-} else {
-    spacepassControllers = require('../../controllers/spacepass/spacepass-controller.prod');
-    // Controller interacts with remote MongoDB database
-
-    const { checkParamType, getSpacepassDetails, getAllSpacepasses, createSpacepass } = spacepassControllers;
-
-    // MIDDLEWARE STACK
-    spacepassRouter.param('identifier', checkParamType);
-
-    // ROUTES
-    spacepassRouter.route('/')
+    spacepassesRouter.route('/')
         .get(getAllSpacepasses)
         .post(createSpacepass);
 
-    spacepassRouter.route('/:identifier')
+    spacepassesRouter.route('/:identifier')
         .get(checkParamType, getSpacepassDetails);
-}
 
-module.exports = spacepassRouter;
+module.exports = spacepassesRouter;

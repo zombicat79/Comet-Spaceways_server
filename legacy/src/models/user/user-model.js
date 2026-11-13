@@ -1,3 +1,5 @@
+// Document model for interaction with local JSON pseudo-database file managed by fs module
+
 const userModel = [
     'name',
     'surname',

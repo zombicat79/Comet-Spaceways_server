@@ -1,4 +1,6 @@
-const User = require('../../../db/models/user/user-model.prod');
+// Controller interacts with remote MongoDB database
+
+const User = require('../../models/user/user-model');
 
 // MIDDLEWARE FUNCTIONS
 // * --- Needed to determine whether the param passed into the URL is an ID or a USERNAME --- *

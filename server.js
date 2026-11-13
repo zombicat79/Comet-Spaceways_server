@@ -1,3 +1,5 @@
+// Server interacts with remote MongoDB database
+
 const app = require('./app');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');

@@ -1,3 +1,5 @@
+// Document model for remote MongoDB database
+
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 

@@ -1,39 +1,41 @@
+// Controller interacts with with local JSON pseudo-database file managed by fs module
+
 const fs = require('fs');
 const { readFile } = require('node:fs/promises');
-const userModel = require('../../../db/models/user/user-model.dev');
+const spacepassModel = require('../../models/spacepass/spacepass-model');
 
-const usersData = JSON.parse(fs.readFileSync(`${__dirname}/../../../db/collections/users.json`));
+const spacepassesData = JSON.parse(fs.readFileSync(`${__dirname}/../../../db/collections/spacepasses.json`));
 
 // MIDDLEWARE FUNCTIONS
 async function fetchUptodateData(req, res, next) {
     try {
-        const dbContent = await readFile(`${__dirname}/../../../db/collections/users.json`, { encoding: 'utf8' });
+        const dbContent = await readFile(`${__dirname}/../../../db/collections/spacepasses.json`, { encoding: 'utf8' });
         console.log('New data returned!');
         req.dbReading = JSON.parse(dbContent);
     } catch(err) {
         console.log('Old data returned!');
-        req.dbReading = usersData;
+        req.dbReading = spacepassesData;
     } finally {
         next();
     }
 }
 
 function checkID(req, res, next, value) {
-    const targetUser = {...req.dbReading}.users.find((el) => el.id === +value);
+    const targetSpacepass = {...req.dbReading}.spacepasses.find((el) => el.id === +value);
     
-    if (!targetUser) {
+    if (!targetSpacepass) {
         return res.status(404).json({
             status: 'fail',
-            message: `User with ID: ${value} does not exist in the DB!`
+            message: `Spacepass with ID: ${value} does not exist in the DB!`
         });
     }
 
-    req.target = targetUser;
+    req.target = targetSpacepass;
     next();
 }
 
 function checkRequiredProps(req, res, next) {
-    for (const prop of userModel) {
+    for (const prop of spacepassModel) {
         if (!(prop in req.body)) {
             return res.status(400).json({
                 status: 'fail',
@@ -46,7 +48,7 @@ function checkRequiredProps(req, res, next) {
 
 function checkDisallowedProps(req, res, next) {
     for (const prop in req.body) {
-        if (!(userModel.includes(prop))) {
+        if (!(spacepassModel.includes(prop))) {
             return res.status(400).json({
                 status: 'fail',
                 message: `${prop} property is not allowed`
@@ -57,35 +59,35 @@ function checkDisallowedProps(req, res, next) {
 }
 
 // ROUTE HANDLERS
-function getAllUsers(req, res) {
+function getAllSpacepasses(req, res) {
     res.status(200).json({
         status: 'success',
         data: req.dbReading
     });
 }
 
-function getUser (req, res) {
+function getSpacepass (req, res) {
     res.status(200).json({
         status: 'success',
         data: req.target
     });
 }
 
-function createUser(req, res) {
-    const currentUsers = {...req.dbReading}.users;
-    const newUser = { 
+function createSpacepass(req, res) {
+    const currentSpacepasses = {...req.dbReading}.spacepasses;
+    const newSpacepass = { 
         ...req.body, 
-        id: currentUsers[currentUsers.length-1]
-            ? currentUsers[currentUsers.length-1].id + 1
+        id: currentSpacepasses[currentSpacepasses.length-1]
+            ? currentSpacepasses[currentSpacepasses.length-1].id + 1
             : 1
     };
-    const updatedUsers = [...currentUsers, newUser];
+    const updatedSpacepasses = [...currentSpacepasses, newSpacepass];
 
     try {
-        fs.writeFile(`${__dirname}/../../../db/collections/users.json`, JSON.stringify({ users: updatedUsers }), () => {
+        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ spacepasses: updatedSpacepasses }), () => {
             res.status(201).json({
                 status: 'success',
-                data: updatedUsers
+                data: updatedSpacepasses
             });
         });
     } catch(err) {
@@ -96,20 +98,20 @@ function createUser(req, res) {
     }
 }
 
-function updateUser(req, res) {
-    const updatedUser = {...req.target, ...req.body};
-    const updatedData = {...req.dbReading}.users.map((el) => {
-        if (el.id === req.target.id) return updatedUser;
+function updateSpacepass(req, res) {
+    const updatedSpacepass = {...req.target, ...req.body};
+    const updatedData = {...req.dbReading}.spacepasses.map((el) => {
+        if (el.id === req.target.id) return updatedSpacepass;
         return el;
     });
 
     try {
-        fs.writeFile(`${__dirname}/../../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
+        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ spacepasses: updatedData }), () => {
             res.status(200).json({
                 status: 'success',
                 data: {
                     previous: req.target,
-                    updated: updatedUser
+                    updated: updatedSpacepass
                 }
             });
         });
@@ -121,11 +123,11 @@ function updateUser(req, res) {
     }
 }
 
-function deleteUser(req, res) {
-    const updatedData = {...req.dbReading}.users.filter((el) => el.id !== req.target.id);
+function deleteSpacepass(req, res) {
+    const updatedData = {...req.dbReading}.spacepasses.filter((el) => el.id !== req.target.id);
 
     try {
-        fs.writeFile(`${__dirname}/../../../db/collections/users.json`, JSON.stringify({ users: updatedData }), () => {
+        fs.writeFile(`${__dirname}/../../db/collections/users.json`, JSON.stringify({ spacepasses: updatedData }), () => {
             res.status(204).json({
                 status: 'success'
             })
@@ -141,11 +143,11 @@ function deleteUser(req, res) {
 module.exports = {
     checkID,
     fetchUptodateData,
-    getAllUsers,
-    getUser,
+    getAllSpacepasses,
+    getSpacepass,
     checkRequiredProps,
     checkDisallowedProps,
-    createUser,
-    updateUser,
-    deleteUser
+    createSpacepass,
+    updateSpacepass,
+    deleteSpacepass
 }
