@@ -3,8 +3,8 @@
 const express = require('express');
 const cors = require('cors');
 
-const usersRouter = require('./src/routes/user/user-routes');
-const spacepassesRouter = require('./src/routes/spacepass/spacepass-routes');
+const usersRouter = require('./src/routes/users/users-routes');
+const spacepassesRouter = require('./src/routes/spacepasses/spacepasses-routes');
 
 const app = express();
 

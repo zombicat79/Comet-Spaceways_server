@@ -1,6 +1,6 @@
 // Controller interacts with remote MongoDB database
 
-const Spacepass = require("../../models/spacepass/spacepass-model");
+const Spacepass = require("../../models/spacepasses/spacepasses-model");
 
 // MIDDLEWARE FUNCTIONS
 // * --- Needed to determine whether the param passed into the URL is a SPACEPASS NUMBER or an OWNER ID --- *
